@@ -1,0 +1,40 @@
+#!/bin/bash
+###############################################################################
+#
+#  Generic Application Stop / Start script.
+#  
+#  NOTE:  SOME SYSTEMS, SUCH AS THE SAP APPLICATION  RUN A DIFFERENT SCRIPT
+#         UNDER A DIFFERENT USER PLEASE CUSTOMIZE ACCORDINGLY
+#
+#  VARIABLES
+#  ---------
+#
+#  APP_STOP_SCRIPT: Script to use to stop Application properly.
+#
+#         APP_USER: User ID of application owner.
+#
+###############################################################################
+####################
+### Shutdown SAP ###
+####################
+#
+#
+APP_STOP_SCRIPT1="/usr/sap/EPD/SYS/exe/uc/rs6000_64/stopsap"
+APP_STOP_SCRIPT2="/usr/sap/SWD/SYS/exe/nuc/rs6000_64/stopsap"
+#
+APP_STOP_CMD1="$APP_STOP_SCRIPT1"
+APP_STOP_CMD2="$APP_STOP_SCRIPT2"
+#
+APP_USER1=epdadm
+APP_USER2=swdadm
+#
+###############################################
+echo "Verifying running SAP processes..."
+ps -ef |grep -i sap
+echo "Calling script to shutdown SAP (stopsap)..."
+su - $APP_USER1 -c "$APP_STOP_CMD1"
+su - $APP_USER2 -c "$APP_STOP_CMD2"
+echo "Verifying if there are any remaining SAP processes..."
+ps -ef |grep -i sap
+sleep 1
+###############################################

@@ -1,0 +1,35 @@
+#!/bin/bash
+###############################################################################
+#
+#  Generic Database Stop / Start script.
+#  
+#  NOTE:  SOME SYSTEMS, SUCH AS THE SAP DATABASES  RUN A DIFFERENT SCRIPT
+#         UNDER A DIFFERENT USER PLEASE CUSTOMIZE ACCORDINGLY
+#
+#  VARIABLES
+#  ---------
+#
+#  DB_STOP_SCRIPT: Script to use to stop databases properly.
+#
+#         DB_USER: User ID of database owner.  Usually oracle, but not always.
+#
+###############################################################################
+#
+#
+DB_STOP_SCRIPT="/opt/oracle/oracle-svc.sh"
+#
+DB_STOP_CMD="$DB_STOP_SCRIPT stop"
+#
+DB_USER=oracle
+#
+#
+###############################################
+echo "INFO: $0 script running..."
+
+if [[ -f $DB_STOP_SCRIPT ]];then 
+      echo "INFO: $DB_STOP_SCRIPT was found.  Executing..."
+      su - $DB_USER -c "$DB_STOP_CMD"
+      EXIT_CODE=$?
+fi
+exit 0
+###############################################

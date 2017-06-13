@@ -1,0 +1,27 @@
+
+echo "|-----------------------------------------------------------------|"
+echo "| This system is for the use of authorized users only.            |"
+echo "| Individuals using this computer system without authority, or in |"
+echo "| excess of their authority, are subject to having all of their   |"
+echo "| activities on this system monitored and recorded by system      |"
+echo "| personnel.                                                      |"
+echo "|                                                                 |"
+echo "| In the course of monitoring individuals improperly using this   |"
+echo "| system, or in the course of system maintenance, the activities  |"
+echo "| of authorized users may also be monitored.                      |"
+echo "|                                                                 |"
+echo "| Anyone using this system expressly consents to such monitoring  |"
+echo "| and is advised that if such monitoring reveals possible         |"
+echo "| evidence of criminal activity, system personnel may provide the |"
+echo "| evidence of such monitoring to law enforcement officials.       |"
+echo "|-----------------------------------------------------------------|"
+echo 
+echo 
+echo 
+echo "THIS SERVER WAS PATCHED `date +"%m/%d/%y"`  SORRY FOR ANY INCONVENIENCE "
+echo "ATT. THE HAPPY UNIX TEAM :)"
+echo 
+echo 
+echo "Have a Nice Day !!"
+echo
+echo

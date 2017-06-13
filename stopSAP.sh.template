@@ -1,0 +1,22 @@
+####################
+### Shutdown SAP ###
+####################
+echo "Verifying running SAP processes..."
+ps -ef |grep -i sap
+echo "Calling script to shutdown SAP (stopsap)..."
+su - epdadm -c "/usr/sap/EPD/SYS/exe/uc/rs6000_64/stopsap"
+su - swdadm -c "/usr/sap/SWD/SYS/exe/nuc/rs6000_64/stopsap"
+echo "Verifying if there are any remaining SAP processes..."
+ps -ef |grep -i sap
+
+
+#######################
+### Shutdown Oracle ###
+#######################
+   echo "Verifying running Oracle processes..."
+   ps -ef |grep ora
+   echo "Calling script to shutdown Oracle (dbshut.sh)..."
+   su - oraepd -c "/opt/oracle/oracle-svc.sh stop"
+   echo "Verifying if there are any remaining Oracle processes..."
+   ps -ef |grep ora
+
